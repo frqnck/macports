@@ -1,0 +1,2 @@
+byobu 468
+portdir sysutils/byobu description {Byobu, enhancer for GNU screen and Tmux.} homepage http://byobu.co epoch 0 platforms darwin name byobu depends_lib {port:coreutils port:tmux port:gsed} license GPL-3 maintainers cassedanne.com:franck long_description {Byobu includes an enhanced profile, configuration utilities, and system status notifications for the GNU screen window manager as well as the Tmux terminal multiplexer.} version 5.87 categories sysutils revision 0

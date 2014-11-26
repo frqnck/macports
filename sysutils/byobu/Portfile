@@ -1,0 +1,41 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem      	1.0
+
+name                byobu
+categories			sysutils
+maintainers         cassedanne.com:franck
+
+version				5.87
+homepage            http://byobu.co
+
+distname          byobu-${version}
+distfiles         byobu_${version}.orig.tar.gz
+
+master_sites		https://launchpad.net/byobu/trunk/${version}/+download
+
+checksums 			${distfiles} md5 85c24ab9f82f354f6f28e70870102dfb
+
+description         Byobu, enhancer for GNU screen and Tmux.
+long_description    \
+		Byobu includes an enhanced profile, configuration utilities, and \
+		system status notifications for the GNU screen window manager as well \
+		as the Tmux terminal multiplexer.
+
+platforms           darwin
+license             GPL-3
+
+depends_lib-append  port:coreutils \
+                    port:tmux \
+                    port:gsed
+
+universal_variant no
+
+livecheck.type    regex
+livecheck.regex   {byobu_(\d+(?:\.\d+)*\w).orig.tar.gz}
+
+use_configure     yes
+configure.args    --prefix=${prefix}
+
+#build.cmd         make
