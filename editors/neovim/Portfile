@@ -3,10 +3,9 @@
 
 PortSystem          1.0
 PortGroup           github 1.0
-PortGroup           cmake 1.0
 
-github.setup        neovim neovim master
-version             0.0.0-alpha
+github.setup        neovim neovim 943b06329075865e4453a90f83afcbcfb2151965
+version             0.0.0-alpha+201412190223
 
 categories          editors
 platforms           darwin
@@ -18,21 +17,23 @@ homepage            http://www.neovim.org
 license             Apache-2 Vim GPL-2+
 maintainers         cassedanne.com:franck
 
-depends_lib			port:gettext
+checksums           md5 f3426e84da6a9655b83ead510b033aae \
+                    sha1 17982b0e062258b3d03b22b1bebd03cae2e9f9ab \
+                    rmd160 782a86b0289d872ddb2086f1212e5009d0dcb5d7
+
+depends_lib-append  port:gettext 
 
 depends_build-append \
-					port:pkgconfig \
-					port:autoconf \
-					port:automake \
-					port:libtool
+                    port:pkgconfig \
+                    port:autoconf \
+                    port:automake \
+                    port:libtool \
+                    port:luarocks
 
-build.args 			CMAKE_EXTRA_FLAGS=\"-DCMAKE_INSTALL_PREFIX:PATH=${prefix}\"
+build.args          CMAKE_EXTRA_FLAGS=\"-DCMAKE_INSTALL_PREFIX:PATH=${prefix}\"
+
 use_configure       no
 
-checksum 			{}
-
 use_parallel_build  yes
-test.run            yes
-test.cmd            make test
 
 livecheck.type      none

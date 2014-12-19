@@ -4,12 +4,8 @@
 PortSystem			1.0
 
 PortGroup           github 1.0
-PortGroup           cmake 1.0
 
 version				1.0.2
-
-github.setup        libuv libuv v${version}
-
 
 categories			devel
 platforms			darwin
@@ -24,7 +20,15 @@ homepage            http://www.libuv.org
 license             {MIT BSD}
 maintainers         cassedanne.com:franck
 
-test.run        	yes
-test.cmd			make check
+github.setup        libuv libuv ${version}
+github.tag_prefix   v
 
-#livecheck.type      none
+checksums           rmd160  3bddc0a2a732736032b27918479d6bce1661560e \
+                    sha256  8396b15ee9241ad27c6d63f6423ac92a88c4afd929649331721551ebd7877d45
+
+pre-configure {
+	system "cd ${worksrcpath} && ./autogen.sh"
+}
+
+test.run        	yes
+test.target			check

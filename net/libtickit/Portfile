@@ -1,0 +1,35 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+
+name                libtickit
+version             0+bzr280
+
+categories          net
+platforms           darwin
+
+description         Terminal Interface Construction Kit.
+long_description    This library provides an abstracted mechanism for \
+					building interactive full-screen terminal programs. It \
+					provides a full set of output drawing functions, and \
+					handles keyboard and mouse input events.
+license             MIT
+maintainers         cassedanne.com:franck
+
+homepage            http://www.leonerd.org.uk/code/libtickit/
+master_sites        ${homepage}
+distfiles           ${name}-${version}.tar.gz
+
+checksums           rmd160  5412515c7f1a7ca5fe5b0cbd2e24af85901b1b89 \
+                    sha256  8a08bcc17667747da254f646d356944241db7af057e12e77db2c101355d77969
+patch {
+    reinplace "s|PREFIX=/usr/local|PREFIX=${prefix}|" ${worksrcpath}/Makefile
+}
+use_configure   no
+
+depends_lib		port:libtermkey
+
+#livecheck.type  regex
+#livecheck.url   ${homepage}
+#livecheck.regex {{$name}-(\d+(?:\.\d+)*).tar.gz}

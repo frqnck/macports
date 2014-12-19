@@ -1,0 +1,29 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+
+PortGroup           github 1.0
+
+version             1.1.1
+
+name                libunibilium
+
+categories          net
+platforms           darwin
+
+description         A terminfo parsing library.
+long_description    Unibilium is a very basic terminfo library. It doesn't \
+                    depend on curses or any other library. It also doesn't \
+                    use global variables, so it should be thread-safe.
+license             LGPL-3
+maintainers         cassedanne.com:franck
+
+github.setup        mauke unibilium v${version}
+github.tag_prefix   v
+
+checksums           rmd160  5ac8db9c7723984f2de51ad01d1fd79ce450470b \
+                    sha256  0b887087353c5b99c5dd889c22d7d3aad90b9ce1c4d061c59c8f247ba0e21d68
+
+use_configure       no
+destroot.destdir    PREFIX=${destroot}${prefix}
