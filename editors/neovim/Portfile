@@ -21,7 +21,7 @@ checksums           md5     7367b6fb1b5538b5478e0e7b704868d7 \
                     sha1    b917a0b73282aad0d6da727baed313a0f3d81496 \
                     rmd160  b88d79622bdec9758b42e9b37c7ac5796e8660db
 
-depends_lib-append  port:gettext 
+depends_lib-append  port:gettext
 
 depends_build-append \
                     port:pkgconfig \
@@ -35,4 +35,3 @@ build.args          CMAKE_EXTRA_FLAGS=\"-DCMAKE_INSTALL_PREFIX:PATH=${prefix}\"
 use_configure       no
 
 use_parallel_build  yes
-
