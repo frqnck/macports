@@ -7,8 +7,6 @@ PortGroup           github 1.0
 
 version             1.1.1
 
-name                libunibilium
-
 categories          net
 platforms           darwin
 
@@ -19,7 +17,7 @@ long_description    Unibilium is a very basic terminfo library. It doesn't \
 license             LGPL-3
 maintainers         cassedanne.com:franck
 
-github.setup        mauke unibilium v${version}
+github.setup        mauke unibilium ${version}
 github.tag_prefix   v
 
 checksums           rmd160  5ac8db9c7723984f2de51ad01d1fd79ce450470b \
@@ -27,3 +25,5 @@ checksums           rmd160  5ac8db9c7723984f2de51ad01d1fd79ce450470b \
 
 use_configure       no
 destroot.destdir    PREFIX=${destroot}${prefix}
+
+test.run            yes

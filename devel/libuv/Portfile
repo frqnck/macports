@@ -1,20 +1,20 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
 # $Id$
 
-PortSystem			1.0
+PortSystem          1.0
 
 PortGroup           github 1.0
 
-version				1.0.2
+version             1.3.0
 
-categories			devel
-platforms			darwin
+categories          devel
+platforms           darwin
 
-description			Cross-platform asychronous I/O.
-long_description 	libUV is a multi-platform support library with a focus on \
-					asynchronous I/O. It was primarily developed for use by \
-					Node.js, but it's also used by Luvit, Julia, pyuv, and \
-					others.
+description         Cross-platform asynchronous I/O.
+long_description    libUV is a multi-platform support library with a focus on \
+                    asynchronous I/O. It was primarily developed for use by \
+                    Node.js, but it's also used by Luvit, Julia, pyuv, and \
+                    others.
 
 homepage            http://www.libuv.org
 license             {MIT BSD}
@@ -23,12 +23,12 @@ maintainers         cassedanne.com:franck
 github.setup        libuv libuv ${version}
 github.tag_prefix   v
 
-checksums           rmd160  3bddc0a2a732736032b27918479d6bce1661560e \
-                    sha256  8396b15ee9241ad27c6d63f6423ac92a88c4afd929649331721551ebd7877d45
+checksums           rmd160  b2e1dc7dd2114c242ad138ee410e6b58417d99db \
+                    sha256  a8d79332a935c9b6d1b59efcf4d4b2dd1b1c8e511964240f11e9d82331b2f49f
 
 pre-configure {
-	system "cd ${worksrcpath} && ./autogen.sh"
+    system "cd ${worksrcpath} && ./autogen.sh"
 }
 
-test.run        	yes
-test.target			check
+test.run            yes
+test.target         check
